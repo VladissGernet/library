@@ -1,17 +1,9 @@
-// import {pluralize} from './util.js';
-import {authors} from './mock.js';
+import {createAlphabet} from './create-alphabet.js';
+import {initLinkListener} from './alphabet-letter-link.js';
+import {initMainPageAuthorsList} from './init-authors-list.js';
+import {addMainPageAssistance} from './main-page-assistance.js';
 
-const siteNavigation = document.querySelector('.site-nav');
-siteNavigation.innerHTML = '';
-
-const siteNavigationItems = authors.map(({key,items}) => {
-  const isItemEmpty = items.length === 0;
-  const itemLinkHref = (isItemEmpty ? '' : `href="#${key.toLowerCase()}"`);
-  return `
-    <li class="site-nav-item">
-      <a class="site-nav-link" ${itemLinkHref}>${key.toUpperCase()}</a>
-    </li>
-`;
-}).join('');
-siteNavigation.insertAdjacentHTML('afterbegin', siteNavigationItems);
-
+createAlphabet();
+initMainPageAuthorsList();
+addMainPageAssistance();
+initLinkListener();
