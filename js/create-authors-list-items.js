@@ -1,9 +1,11 @@
 import {pluralize} from './util.js';
 import {booksArrayToPluralize} from './constats.js';
 import {authorList} from './elements.js';
+let showedAuthorsData = {};
 
 const createAuthorsListItems = (items) => {
   const selectedAuthorsList = items.map((authorName) => {
+    showedAuthorsData = items;
     const {author, books} = authorName;
     return `
     <li class="author-item">
@@ -18,4 +20,4 @@ const createAuthorsListItems = (items) => {
   authorList.insertAdjacentHTML('afterbegin', selectedAuthorsList);
 };
 
-export {createAuthorsListItems};
+export {createAuthorsListItems, showedAuthorsData};
