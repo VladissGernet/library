@@ -2,7 +2,7 @@ import {mainLetter, siteNavigation} from './elements.js';
 import {authors} from './mock.js';
 import {createAuthorsListItems} from './create-authors-list-items.js';
 
-const initLinkListener = () => {
+const initAlphabetLetterLinkListener = () => {
   const onLinkClick = (evt) => {
     const link = evt.target.closest('a');
     if (link === null) {
@@ -21,5 +21,5 @@ const initLinkListener = () => {
   siteNavigation.addEventListener('click', (evt) => onLinkClick(evt));
 };
 
-export {initLinkListener};
+export {initAlphabetLetterLinkListener};
 

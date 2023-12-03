@@ -22,6 +22,10 @@
   font-style: normal;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-size: 16px;
@@ -29,6 +33,9 @@ body {
   font-family: "PTRootUI", "Arial", sans-serif;
   color: #000d33;
   background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .visually-hidden {
@@ -53,8 +60,11 @@ body {
 }
 
 .main-page {
+  flex-grow: 1;
   display: grid;
+  align-items: start;
   grid-template-columns: 530px 600px;
+  grid-template-rows: max-content;
   grid-gap: 30px;
   padding: 50px 0;
 }
