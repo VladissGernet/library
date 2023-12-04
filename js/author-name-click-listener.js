@@ -1,4 +1,5 @@
 import {authorsFirstSection, books} from './elements.js';
+import {ShowMoreContent} from './constats.js';
 
 let onAuthorNameClick = {};
 
@@ -21,8 +22,8 @@ const initAuthorNameClickListener = (data) => {
             <p class="year">${year}</p>
           </div>
           <p class="price">${price} <a class="cart" href="#">Купить</a></p>
-          <p class="description">${summary}</p>
-          <a class="more" href="#">Скрыть описание</a>
+          <p class="description short">${summary}</p>
+          <a class="more" href="#">${ShowMoreContent.MORE}</a>
         </article>
       </li>
     `).join('');
