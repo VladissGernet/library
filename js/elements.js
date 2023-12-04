@@ -1,13 +1,9 @@
 const siteNavigation = document.querySelector('.site-nav');
 const books = document.querySelector('.books');
-const authorsSection = document.querySelector('.authors');
-const authorList = authorsSection.querySelector('.author-list');
-const mainLetter = authorsSection.querySelector('h2');
+const authorsFirstSection = document.querySelector('.authors');
 
 export {
   siteNavigation,
-  authorsSection,
-  authorList,
-  mainLetter,
+  authorsFirstSection,
   books
 };

@@ -1,13 +1,9 @@
 import {pluralize} from './util.js';
 import {booksArrayToPluralize} from './constats.js';
-import {authorList} from './elements.js';
-let showedAuthorsData = {};
 
-const createAuthorsListItems = (items) => {
-  const selectedAuthorsList = items.map((authorName) => {
-    showedAuthorsData = items;
-    const {author, books} = authorName;
-    return `
+const createAuthorsListItems = (items) => items.map((authorName) => {
+  const {author, books} = authorName;
+  return `
     <li class="author-item">
       <a class="author-link" data-value="${author}" href="#">
         <h3>${author}</h3>
@@ -15,9 +11,6 @@ const createAuthorsListItems = (items) => {
       </a>
     </li>
     `;
-  }).join('');
-  authorList.innerHTML = '';
-  authorList.insertAdjacentHTML('afterbegin', selectedAuthorsList);
-};
+}).join('');
 
-export {createAuthorsListItems, showedAuthorsData};
+export {createAuthorsListItems};

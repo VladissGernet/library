@@ -1,6 +1,6 @@
 import {createAlphabet} from './create-alphabet.js';
 import {initAlphabetLetterLinkListener} from './alphabet-letter-link.js';
-import {initMainPageAuthorsList} from './init-authors-list.js';
+import {initMainPageAuthorsList} from './init-full-authors-list.js';
 import {addMainPageAssistance} from './main-page-assistance.js';
 import {initAuthorNameClickListener} from './author-name-click-listener.js';
 import {books} from './elements.js';
@@ -17,7 +17,4 @@ books.addEventListener('click', (evt) => {
     return;
   }
   selectedShowMoreButton.previousElementSibling.classList.toggle('short');
-  console.log(selectedShowMoreButton.previousElementSibling);
 });
-
-//Остановился на скоращении строк

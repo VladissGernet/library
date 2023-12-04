@@ -1,6 +1,6 @@
-import {mainLetter, siteNavigation} from './elements.js';
+import {authorsFirstSection, siteNavigation} from './elements.js';
 import {authors} from './mock.js';
-import {createAuthorsListItems} from './create-authors-list-items.js';
+import {createAuthorsSection} from './create-authors-section.js';
 
 const initAlphabetLetterLinkListener = () => {
   const onLinkClick = (evt) => {
@@ -12,11 +12,9 @@ const initAlphabetLetterLinkListener = () => {
     if (isHrefInLink === false) {
       return;
     }
-    mainLetter.textContent = link.textContent;
-    mainLetter.id = link.textContent;
     const selectedAuthorsData = authors.find(({key}) => key === link.textContent);
-    const {items} = selectedAuthorsData;
-    createAuthorsListItems(items);
+    authorsFirstSection.innerHTML = '';
+    authorsFirstSection.insertAdjacentHTML('afterbegin', createAuthorsSection(selectedAuthorsData))
   };
   siteNavigation.addEventListener('click', (evt) => onLinkClick(evt));
 };

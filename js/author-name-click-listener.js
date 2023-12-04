@@ -1,5 +1,5 @@
-import {showedAuthorsData} from './create-authors-list-items.js';
-import {authorList, books} from './elements.js';
+import {authorsFirstSection, books} from './elements.js';
+import {authors} from './mock.js';
 
 const initAuthorNameClickListener = () => {
   const onAuthorNameClick = (evt) => {
@@ -8,7 +8,8 @@ const initAuthorNameClickListener = () => {
       return;
     }
     const authorName = selectedAuthorLink.dataset.value;
-    const authorBooks = showedAuthorsData.find((element) => element.author === authorName).books;
+    const selectedLetterItems = authors.find((section) => section.key === authorName[0]).items;
+    const authorBooks = selectedLetterItems.find((element) => element.author === authorName).books;
     books.innerHTML = '';
     const createItemLayout = authorBooks.map(({img, title, year, price, summary}) => `
       <li class="book-item">
@@ -32,7 +33,7 @@ const initAuthorNameClickListener = () => {
     `;
     books.insertAdjacentHTML('afterbegin', booksList);
   };
-  authorList.addEventListener('click', onAuthorNameClick);
+  authorsFirstSection.addEventListener('click', onAuthorNameClick);
 };
 
 export {initAuthorNameClickListener};
