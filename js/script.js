@@ -4,12 +4,13 @@ import {initMainPageAuthorsList} from './init-full-authors-list.js';
 import {addMainPageAssistance} from './main-page-assistance.js';
 import {initAuthorNameClickListener} from './author-name-click-listener.js';
 import {books} from './elements.js';
+import {authors} from './mock.js';
 
 createAlphabet();
 initMainPageAuthorsList();
 addMainPageAssistance();
 initAlphabetLetterLinkListener();
-initAuthorNameClickListener();
+initAuthorNameClickListener(authors);
 
 books.addEventListener('click', (evt) => {
   const selectedShowMoreButton = evt.target.closest('.more');

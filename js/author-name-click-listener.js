@@ -1,14 +1,15 @@
 import {authorsFirstSection, books} from './elements.js';
-import {authors} from './mock.js';
 
-const initAuthorNameClickListener = () => {
-  const onAuthorNameClick = (evt) => {
+let onAuthorNameClick = {};
+
+const initAuthorNameClickListener = (data) => {
+  onAuthorNameClick = (evt) => {
     const selectedAuthorLink = evt.target.closest('a');
     if (selectedAuthorLink === null) {
       return;
     }
     const authorName = selectedAuthorLink.dataset.value;
-    const selectedLetterItems = authors.find((section) => section.key === authorName[0]).items;
+    const selectedLetterItems = data.find((section) => section.key === authorName[0]).items;
     const authorBooks = selectedLetterItems.find((element) => element.author === authorName).books;
     books.innerHTML = '';
     const createItemLayout = authorBooks.map(({img, title, year, price, summary}) => `
@@ -36,4 +37,4 @@ const initAuthorNameClickListener = () => {
   authorsFirstSection.addEventListener('click', onAuthorNameClick);
 };
 
-export {initAuthorNameClickListener};
+export {initAuthorNameClickListener, onAuthorNameClick};
