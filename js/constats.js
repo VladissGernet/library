@@ -5,5 +5,5 @@ const booksArrayToPluralize = ['книга', 'книги', 'книг'];
 export {
   booksArrayToPluralize,
   mainPageTitle,
-  mainPageAssistanceDescription
+  mainPageAssistanceDescription,
 };

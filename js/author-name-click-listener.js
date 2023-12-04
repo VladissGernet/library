@@ -29,7 +29,7 @@ const initAuthorNameClickListener = () => {
     <ul class="book-list">
       ${createItemLayout}
     </ul>
-`;
+    `;
     books.insertAdjacentHTML('afterbegin', booksList);
   };
   authorList.addEventListener('click', onAuthorNameClick);
